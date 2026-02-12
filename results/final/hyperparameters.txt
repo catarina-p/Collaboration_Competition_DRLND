@@ -1,0 +1,39 @@
+# DDPG Hyperparameters
+GAMMA = 0.99            # discount factor
+TAU = 1e-3              # for soft update of target parameters
+
+# Replay buffer parameters
+BUFFER_SIZE = int(5e5)           # replay buffer size
+BATCH_SIZE = 128                 # minibatch size
+
+# Learning rates
+LR_ACTOR = 1.9e-4                  # learning rate of the actor
+LR_CRITIC = 1e-3                 # learning rate of the critic
+
+# Regularization
+WEIGHT_DECAY_ACTOR = 1e-6        # L2 weight decay
+WEIGHT_DECAY_CRITIC = 1e-5       # L2 weight decay
+
+# Optimization
+CLIP_GRAD = 1.0                  # gradient clipping value
+UPDATE_EVERY = 5                 # learning timestep interval
+NUM_PASSES = 10                   # number of learning passes
+
+# Exploration
+EPSILON = 1.0                    # explore->exploit noise process added to act step
+EPSILON_DECAY = 1e-5             # decay rate for noise process
+
+# Training
+NUM_EPISODES = 3000              # maximum number of training episodes
+PRINT_EVERY = 50                 # print results every n episodes
+EPISODE_WINDOW = 100             # moving average window size
+GOAL = 0.5                       # goal score to reach
+MAX_EPISODE_SCORE = 2.5            # maximum score for an episode (to prevent excessively long episodes)
+
+# Reproducibility by fixing random seed
+SEED = 4321
+torch.manual_seed(SEED)
+np.random.seed(SEED)
+random.seed(SEED)
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
